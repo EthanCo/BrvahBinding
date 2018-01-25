@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Lib.style</string>
+
+    <!--LoadingDialog-->
+    <string name="dialog_loading">正在加载</string>
+    <string name="dialog_please_wait">请稍等...</string>
+    <string name="dialog_please_wait_title">请稍等</string>
+
+    <string name="account_phone_number">手机号码</string>
+    <string name="account_register">创建账号</string>
+    <string name="account_forget">忘记密码</string>
+    <string name="account_login">登录</string>
+    <string name="account_ali_login">其他方式登录</string>
+    <string name="account_passward">登录密码</string>
+
+    <string name="login_phonenumber_invalid">手机号格式不正确</string>
+    <string name="tips_pwd">密码为6-20位字符(大小写字母或数字)</string>
+
+    <string name="login_wx_errcode_success">发送成功</string>
+    <string name="login_wx_errcode_cancel">发送取消</string>
+    <string name="login_wx_errcode_deny">发送被拒绝</string>
+    <string name="login_wx_errcode_unsupported">不支持错误</string>
+    <string name="login_wx_errcode_unknown">发送返回</string>
+</resources>

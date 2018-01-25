@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Material 色彩规范-->
+    <!--App主色调-->
+    <color name="colorPrimary">#53d2c4</color>
+    <!--App主色调 (暗色)-->
+    <color name="colorPrimaryDark">#53d2c4</color>
+    <!--App主色调 (亮色)-->
+    <color name="colorPrimaryLight">#BBDEFB</color>
+    <!--App着重色-->
+    <color name="colorAccent">#53d2c4</color>
+    <!--主文字-->
+    <color name="colorPrimaryText">#555454</color>
+    <!--次级文字-->
+    <color name="colorSecondaryText">#878787</color>
+    <!--hint文字-->
+    <color name="colorHintText">#d5d5d5</color>
+    <!--周边颜色为Primary时 Text和Icons的颜色-->
+    <color name="colorIcons">#FFFFFF</color>
+    <!--分割线-->
+    <color name="colorDivider">#BDBDBD</color>
+    <color name="colorDividerLight">#d7d7d7</color>
+
+    <!--白色-->
+    <color name="colorWhite">#FFFFFF</color>
+    <!--黑色-->
+    <color name="colorBlack">#000000</color>
+    <!--淡白色-->
+    <color name="colorWhiteSmoke">#F5F5F5</color>
+    <!--透明-->
+    <color name="colorTrans">#00000000</color>
+
+
+    <!--Toobar 渐变色-->
+    <color name="shape_toolbar_start">#0091fe</color>
+    <color name="shape_toolbar_end">#00dec8</color>
+    <color name="shape_toolbar_center">#00c1dd</color>
+
+    <color name="color_recycler_background">#e8e8e8</color>
+
+    <!--分割线-->
+    <color name="divider">#d7d7d7</color>
+    <color name="ripple_color">#e2e2e2</color>
+
+    <color name="colorSeekBarTrackBg">#c6c4c4</color>
+    <!--hint颜色-->
+    <color name="hint_text_color">#c6c4c4</color>
+    <color name="text_color_back">#007dcd</color>
+
+    <color name="hint_ali_login_tips">#6b6b6b</color>
+
+    <color name="colorHighLight">#00d7cd</color>
+    <color name="colorHighLightDefault">#7F00d7cd</color>
+    <color name="colorHighLightEnable">#ff00d7cd</color>
+</resources>
