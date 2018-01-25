@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RecyclerViewTest.iml" filepath="$PROJECT_DIR$/RecyclerViewTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BrvahBinding.iml" filepath="$PROJECT_DIR$/BrvahBinding.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/brvahbinding/brvahbinding.iml" filepath="$PROJECT_DIR$/brvahbinding/brvahbinding.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib.frame/lib.frame.iml" filepath="$PROJECT_DIR$/lib.frame/lib.frame.iml" />
