@@ -107,7 +107,7 @@ public class BindingListChangedCallBack extends ObservableList.OnListChangedCall
             adapter.notifyItemRangeRemoved(internalPosition, 1);
         }else{
             if (adapter.getHeaderLayoutCount() > 0) {
-                adapter.notifyItemRangeRemoved(internalPosition, adapter.getItemCount() - internalPosition);
+                adapter.notifyItemRangeRemoved(internalPosition, itemCount); //adapter.getItemCount() - internalPosition
             }else{
                 adapter.notifyItemRangeRemoved(internalPosition, itemCount);
             }

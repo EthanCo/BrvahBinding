@@ -19,6 +19,7 @@ import com.lib.frame.view.BaseActivity;
  */
 public class BRVAHBinding2Activity extends BaseActivity<BrvahView, BrvahViewModel> implements BrvahView {
     private ActivityBrvahBinding2Binding binding;
+    private int count = 0;
 
     @Override
     public void initVarAndView(Bundle savedInstanceState) {
@@ -41,7 +42,8 @@ public class BRVAHBinding2Activity extends BaseActivity<BrvahView, BrvahViewMode
             @Override
             public void onClick(View v) {
                 Toast.makeText(BRVAHBinding2Activity.this, "add", Toast.LENGTH_SHORT).show();
-                mViewModel.items.add("item New");
+                mViewModel.items.add("item New:" + count);
+                count++;
             }
         });
 
