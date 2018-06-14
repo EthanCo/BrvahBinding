@@ -23,12 +23,18 @@
         android:id="@+id/btn_pull_to_refresh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="DataBindingUserAdapter" />
+        android:text="PUll TO REFRESH" />
 
     <Button
         android:id="@+id/btn_brvah_binding_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="DataBindingUserAdapter" />
+
+    <Button
+        android:id="@+id/btn_pull_to_refresh2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PUll TO REFRESH2" />
 
 </LinearLayout>

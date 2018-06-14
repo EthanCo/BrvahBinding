@@ -5,6 +5,7 @@ import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.support.annotation.ColorRes;
+import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -46,88 +47,25 @@ public class BrvahViewBindingAdapter {
                                            Integer emptyResId, View.OnClickListener emptyClickListener,
                                            BrvahDividerManagers.DividerFactory dividerFactory,
                                            BaseQuickAdapter.RequestLoadMoreListener loadMoreListener,LoadMoreView loadMoreView) {
-        if (brvahItemBinding == null) {
-            throw new IllegalArgumentException("LocalViewBindingAdapter must not be null");
-        }
-
-        RecyclerView.Adapter oldAdapter = recyclerView.getAdapter();
-        Log.i(TAG, "setBrvahAdapter items.size:" + items.size() + " oldAdapter:"
-                + oldAdapter + " brvahItemBinding.getLayoutRes():" + brvahItemBinding.getLayoutRes()
-                + " brvahItemBinding.getVariableId():" + brvahItemBinding.getVariableId());
-        /*if (items.size() == 0) {
-            return;
-        }*/
-        Log.i(TAG, "setBrvahAdapter items:" + items + " items.hasCode:" + items.hashCode());
+        checkParams(brvahItemBinding);
+        RecyclerView.Adapter oldAdapter = getOldAdapter(recyclerView, brvahItemBinding, items);
         Context context = recyclerView.getContext();
-
-        if (adapter == null) { //items != null && items.size() > 0
-            if (oldAdapter == null) {
-                final int variableId = brvahItemBinding.getVariableId();
-                final int layoutId = brvahItemBinding.getLayoutRes();
-                Log.i(TAG, "adapter = new BaseBindingAdapter:" + variableId + " layoutId:" + layoutId);
-                adapter = new SimpleItemBindingAdapter(brvahItemBinding, items);
-            } else {
-                adapter = (BaseBindingAdapter<T, BindingViewHolder>) oldAdapter;
-            }
-        }
-        Log.i(TAG, "---->>>oldAdapter:" + oldAdapter);
-        if (adapter != null) {
-            Log.i(TAG, "setBrvahAdapter items.size:" + items.size() + " adapter:"
-                    + adapter+" items:"+items +" adapter.item:"+adapter.getData()+" size:"+items.size());
-        }
+        adapter = initAdapter(brvahItemBinding, items, adapter, oldAdapter);
 
         if (oldAdapter == null) {
             LayoutInflater inflater = LayoutInflater.from(context);
-            if (layoutManagerFactory == null) {
-                Log.i(TAG, "setLayoutManager");
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                Log.i(TAG, "setLayoutManager");
-                recyclerView.setLayoutManager(layoutManagerFactory.create(recyclerView));
-            }
-            if (headerViewBinding != null) {
-                Log.i(TAG, "setHeaderView");
-                //adapter.setHeaderView(bindingView(headerViewBinding, inflater).getRoot());
-                T data = headerViewBinding.getData();
-                int headerLayoutRes = headerViewBinding.getLayoutRes();
-                ViewDataBinding viewBinding = DataBindingUtil.inflate(inflater, headerLayoutRes, null, false);
-                Log.i(TAG, "bindingView : "+data+" headerLayoutRes:"+headerLayoutRes+" getVariableId:"+headerViewBinding.getVariableId());
-                headerViewBinding.bind(viewBinding);
-                adapter.setHeaderView(viewBinding.getRoot());
-            }
-            if (footerViewBinding != null) {
-                Log.i(TAG, "setFooterView");
-                adapter.setFooterView(bindingView(footerViewBinding, inflater).getRoot());
-            }
-            if (dividerFactory != null) {
-                RecyclerView.ItemDecoration itemDecoration = dividerFactory.create(recyclerView);
-                if (itemDecoration != null) {
-                    Log.i(TAG, "addItemDecoration");
-                    recyclerView.addItemDecoration(itemDecoration);
-                }
-            }
-            if (loadMoreListener != null) {
-                Log.i(TAG, "setOnLoadMoreListener");
-                adapter.setOnLoadMoreListener(loadMoreListener, recyclerView);
-                if (loadMoreView != null){
-                    adapter.setLoadMoreView(loadMoreView);
-                }else{
-                    adapter.setLoadMoreView(new SimpleLoadMoreView());
-                }
-            }
+            setLayoutManager(recyclerView, layoutManagerFactory, context);
+            setHeaderView(adapter, headerViewBinding, inflater);
+            setFootView(adapter, footerViewBinding, inflater);
+            addItemDecoration(recyclerView, dividerFactory);
+            setLoadMoreView(recyclerView, adapter, loadMoreListener, loadMoreView);
             Log.i(TAG, "setAdapter:" + adapter);
             //adapter.openLoadAnimation(BaseQuickAdapter.ALPHAIN);
-            recyclerView.setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
+            setOverScrollMode(recyclerView, RecyclerView.OVER_SCROLL_NEVER);
             recyclerView.setAdapter(adapter);
         }
-        if (emptyResId != null) {
-            Log.i(TAG, "setEmptyView:" + adapter);
-            adapter.setEmptyView(emptyResId, recyclerView);
-        }
-        if (emptyClickListener != null && adapter.getEmptyView() != null) {
-            Log.i(TAG, "setEmptyView OnClick");
-            adapter.getEmptyView().setOnClickListener(emptyClickListener);
-        }
+        setEmptyView(recyclerView, adapter, emptyResId);
+        setEmptyViewClickListener(adapter, emptyClickListener);
 
 
         /*if (oldAdapter == null) {
@@ -152,7 +90,115 @@ public class BrvahViewBindingAdapter {
         }*/
     }
 
-    private static <T> ViewDataBinding bindingView(BrvahViewBinding<T> brvahViewBinding, LayoutInflater inflater) {
+    private static <T> RecyclerView.Adapter getOldAdapter(RecyclerView recyclerView, BrvahItemBinding<T> brvahItemBinding, List<T> items) {
+        RecyclerView.Adapter oldAdapter = recyclerView.getAdapter();
+        Log.i(TAG, "setBrvahAdapter items.size:" + items.size() + " oldAdapter:"
+                + oldAdapter + " brvahItemBinding.getLayoutRes():" + brvahItemBinding.getLayoutRes()
+                + " brvahItemBinding.getVariableId():" + brvahItemBinding.getVariableId());
+        /*if (items.size() == 0) {
+            return;
+        }*/
+        Log.i(TAG, "setBrvahAdapter items:" + items + " items.hasCode:" + items.hashCode());
+        return oldAdapter;
+    }
+
+    private static <T> void checkParams(BrvahItemBinding<T> brvahItemBinding) {
+        if (brvahItemBinding == null) {
+            throw new IllegalArgumentException("LocalViewBindingAdapter must not be null");
+        }
+    }
+
+    @NonNull
+    private static <T> BaseBindingAdapter initAdapter(BrvahItemBinding<T> brvahItemBinding, List<T> items, BaseBindingAdapter adapter, RecyclerView.Adapter oldAdapter) {
+        if (adapter == null) { //items != null && items.size() > 0
+            if (oldAdapter == null) {
+                final int variableId = brvahItemBinding.getVariableId();
+                final int layoutId = brvahItemBinding.getLayoutRes();
+                Log.i(TAG, "adapter = new BaseBindingAdapter:" + variableId + " layoutId:" + layoutId);
+                adapter = new SimpleItemBindingAdapter(brvahItemBinding, items);
+            } else {
+                adapter = (BaseBindingAdapter<T, BindingViewHolder>) oldAdapter;
+            }
+        }
+        Log.i(TAG, "---->>>oldAdapter:" + oldAdapter);
+        if (adapter != null) {
+            Log.i(TAG, "setBrvahAdapter items.size:" + items.size() + " adapter:"
+                    + adapter+" items:"+items +" adapter.item:"+adapter.getData()+" size:"+items.size());
+        }
+        return adapter;
+    }
+
+    public static void setEmptyViewClickListener(BaseBindingAdapter adapter, View.OnClickListener emptyClickListener) {
+        if (emptyClickListener != null && adapter.getEmptyView() != null) {
+            Log.i(TAG, "setEmptyView OnClick");
+            adapter.getEmptyView().setOnClickListener(emptyClickListener);
+        }
+    }
+
+    public static void setEmptyView(RecyclerView recyclerView, BaseBindingAdapter adapter, Integer emptyResId) {
+        if (emptyResId != null) {
+            Log.i(TAG, "setEmptyView:" + adapter);
+            adapter.setEmptyView(emptyResId, recyclerView);
+        }
+    }
+
+    public static void setOverScrollMode(RecyclerView recyclerView, int scrollMode) {
+        recyclerView.setOverScrollMode(scrollMode);
+    }
+
+    public static void setLoadMoreView(RecyclerView recyclerView, BaseBindingAdapter adapter, BaseQuickAdapter.RequestLoadMoreListener loadMoreListener, LoadMoreView loadMoreView) {
+        if (loadMoreListener != null) {
+            Log.i(TAG, "setOnLoadMoreListener");
+            adapter.setOnLoadMoreListener(loadMoreListener, recyclerView);
+            if (loadMoreView != null){
+                adapter.setLoadMoreView(loadMoreView);
+            }else{
+                adapter.setLoadMoreView(new SimpleLoadMoreView());
+            }
+        }
+    }
+
+    public static void addItemDecoration(RecyclerView recyclerView, BrvahDividerManagers.DividerFactory dividerFactory) {
+        if (dividerFactory != null) {
+            RecyclerView.ItemDecoration itemDecoration = dividerFactory.create(recyclerView);
+            if (itemDecoration != null) {
+                Log.i(TAG, "addItemDecoration");
+                recyclerView.addItemDecoration(itemDecoration);
+            }
+        }
+    }
+
+    public static <T> void setFootView(BaseBindingAdapter adapter, BrvahViewBinding<T> footerViewBinding, LayoutInflater inflater) {
+        if (footerViewBinding != null) {
+            Log.i(TAG, "setFooterView");
+            adapter.setFooterView(bindingView(footerViewBinding, inflater).getRoot());
+        }
+    }
+
+    public static <T> void setHeaderView(BaseBindingAdapter adapter, BrvahViewBinding<T> headerViewBinding, LayoutInflater inflater) {
+        if (headerViewBinding != null) {
+            Log.i(TAG, "setHeaderView");
+            //adapter.setHeaderView(bindingView(headerViewBinding, inflater).getRoot());
+            T data = headerViewBinding.getData();
+            int headerLayoutRes = headerViewBinding.getLayoutRes();
+            ViewDataBinding viewBinding = DataBindingUtil.inflate(inflater, headerLayoutRes, null, false);
+            Log.i(TAG, "bindingView : "+data+" headerLayoutRes:"+headerLayoutRes+" getVariableId:"+headerViewBinding.getVariableId());
+            headerViewBinding.bind(viewBinding);
+            adapter.setHeaderView(viewBinding.getRoot());
+        }
+    }
+
+    public static void setLayoutManager(RecyclerView recyclerView, BrvahLayoutManagers.LayoutManagerFactory layoutManagerFactory, Context context) {
+        if (layoutManagerFactory == null) {
+            Log.i(TAG, "setLayoutManager");
+            recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        } else {
+            Log.i(TAG, "setLayoutManager");
+            recyclerView.setLayoutManager(layoutManagerFactory.create(recyclerView));
+        }
+    }
+
+    public static <T> ViewDataBinding bindingView(BrvahViewBinding<T> brvahViewBinding, LayoutInflater inflater) {
         T data = brvahViewBinding.getData();
         int headerLayoutRes = brvahViewBinding.getLayoutRes();
         ViewDataBinding viewBinding = DataBindingUtil.inflate(inflater, headerLayoutRes, null, false);
