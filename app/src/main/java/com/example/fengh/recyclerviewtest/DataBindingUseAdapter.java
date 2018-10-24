@@ -31,8 +31,8 @@ public class DataBindingUseAdapter extends BaseQuickAdapter<Movie, DataBindingUs
     @Override
     protected void convert(MovieViewHolder helper, Movie item) {
         ViewDataBinding binding = helper.getBinding();
-        binding.setVariable(BR.movie, item);
-        binding.setVariable(BR.presenter, mPresenter);
+        binding.setVariable(com.example.fengh.recyclerviewtest.BR.movie, item);
+        binding.setVariable(com.example.fengh.recyclerviewtest.BR.presenter, mPresenter);
         binding.executePendingBindings();
         switch (helper.getLayoutPosition() %
                 2) {

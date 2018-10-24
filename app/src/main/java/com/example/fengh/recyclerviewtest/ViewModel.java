@@ -7,7 +7,7 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding;
 import me.tatarka.bindingcollectionadapter2.OnItemBind;
 
 /**
- * TODO
+ * ViewModel
  *
  * @author EthanCo
  * @since 2017/10/20

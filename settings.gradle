@@ -1,1 +1,1 @@
-include ':app', ':lib.utils', ':lib.frame', ':lib.style', ':brvahbinding'
+include ':app', ':brvahbinding' // ':lib.utils', ':lib.frame', ':lib.style'

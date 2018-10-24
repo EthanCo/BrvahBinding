@@ -51,7 +51,8 @@ dependencies {
     //implementation 'com.android.support:cardview-v7:26.+'
     testImplementation 'junit:junit:4.12'
     implementation 'com.yqritc:recyclerview-flexibledivider:1.4.0'
-    implementation project(':lib.frame')
+    implementation project(':brvahbinding')
+    /*implementation project(':lib.frame')
     implementation project(':lib.style')
-    implementation project(':lib.utils')
+    implementation project(':lib.utils')*/
 }

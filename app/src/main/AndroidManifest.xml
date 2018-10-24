@@ -25,7 +25,6 @@
             android:label="@string/title_activity_brvahbinding"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PullToRefreshActivity"></activity>
-        <activity android:name=".brvah_binding.view.BRVAHBinding2Activity" />
     </application>
 
 </manifest>

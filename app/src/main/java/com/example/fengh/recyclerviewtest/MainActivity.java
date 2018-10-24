@@ -6,8 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.fengh.recyclerviewtest.brvah_binding.view.BRVAHBinding2Activity;
-
 public class MainActivity extends AppCompatActivity {
     private Button btnRecyclerviewBinding;
     private Button btnHRVAHDataBinding;
@@ -46,13 +44,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnBrvahBinding2 = (Button) findViewById(R.id.btn_brvah_binding_2);
+        /*btnBrvahBinding2 = (Button) findViewById(R.id.btn_brvah_binding_2);
         btnBrvahBinding2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, BRVAHBinding2Activity.class);
                 startActivity(intent);
             }
-        });
+        });*/
     }
 }
