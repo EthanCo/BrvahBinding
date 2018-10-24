@@ -42,7 +42,7 @@ dependencies {
     implementation rootProject.ext.dependencies.flexibledivider
     implementation rootProject.ext.dependencies.y_divideritemdecoration*/
     implementation "com.android.support:appcompat-v7:28.+"
-    implementation "com.android.support:recyclerview-v7:+"
+    implementation "com.android.support:recyclerview-v7:28+"
     implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34"
     implementation "com.yqritc:recyclerview-flexibledivider:1.4.0"
     implementation "com.yanyusong.y_divideritemdecoration:y_divideritemdecoration:2.0"
