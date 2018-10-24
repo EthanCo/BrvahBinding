@@ -30,29 +30,29 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile(rootProject.ext.dependencies.espresso_core, {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation(rootProject.ext.dependencies.espresso_core, {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile rootProject.ext.dependencies.supportv7
-    compile rootProject.ext.dependencies.design
-    testCompile rootProject.ext.dependencies.junit
+    api rootProject.ext.dependencies.supportv7
+    api rootProject.ext.dependencies.design
+    testImplementation rootProject.ext.dependencies.junit
 
-    compile project(':lib.style')
-    compile project(':lib.utils')
-    compile project(':brvahbinding')
-    compile rootProject.ext.dependencies.ImageProxy
-    compile rootProject.ext.dependencies.BRVAH
+    api project(':lib.style')
+    api project(':lib.utils')
+    api project(':brvahbinding')
+    api rootProject.ext.dependencies.ImageProxy
+    api rootProject.ext.dependencies.BRVAH
 
-    compile rootProject.ext.dependencies.rxjava2
-    compile rootProject.ext.dependencies.rxlifecycle
-    compile rootProject.ext.dependencies.rxlifecycleAndroid
-    compile rootProject.ext.dependencies.rxlifecycleComponents
+    api rootProject.ext.dependencies.rxjava2
+    api rootProject.ext.dependencies.rxlifecycle
+    api rootProject.ext.dependencies.rxlifecycleAndroid
+    api rootProject.ext.dependencies.rxlifecycleComponents
     //compile rootProject.ext.dependencies.title_bar
-    compile rootProject.ext.dependencies.barlibrary
-    compile rootProject.ext.dependencies.eventbus
-    compile rootProject.ext.dependencies.material_dialogs
-    implementation rootProject.ext.dependencies.flexibledivider
-    implementation rootProject.ext.dependencies.y_divideritemdecoration
+    api rootProject.ext.dependencies.barlibrary
+    api rootProject.ext.dependencies.eventbus
+    api rootProject.ext.dependencies.material_dialogs
+    api rootProject.ext.dependencies.flexibledivider
+    api rootProject.ext.dependencies.y_divideritemdecoration
     //compile rootProject.ext.dependencies.circleimageview
 }

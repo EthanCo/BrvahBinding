@@ -25,11 +25,11 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile(rootProject.ext.dependencies.espresso_core, {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation(rootProject.ext.dependencies.espresso_core, {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile rootProject.ext.dependencies.supportv7
-    compile rootProject.ext.dependencies.design
-    testCompile rootProject.ext.dependencies.junit
+    implementation rootProject.ext.dependencies.supportv7
+    implementation rootProject.ext.dependencies.design
+    testImplementation rootProject.ext.dependencies.junit
 }
