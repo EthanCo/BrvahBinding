@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
-    buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
         minSdkVersion rootProject.ext.android.minSdkVersion
@@ -34,9 +33,9 @@ dependencies {
     androidTestImplementation(rootProject.ext.dependencies.espresso_core, {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    testImplementation rootProject.ext.dependencies.junit
     api rootProject.ext.dependencies.supportv7
     api rootProject.ext.dependencies.design
-    testImplementation rootProject.ext.dependencies.junit
 
     api project(':lib.style')
     api project(':lib.utils')
@@ -44,7 +43,9 @@ dependencies {
     api rootProject.ext.dependencies.ImageProxy
     api rootProject.ext.dependencies.BRVAH
 
-    api rootProject.ext.dependencies.rxjava2
+    api (rootProject.ext.dependencies.rxjava2){
+        exclude group: 'com.android.support', module: 'support-v13'
+    }
     api rootProject.ext.dependencies.rxlifecycle
     api rootProject.ext.dependencies.rxlifecycleAndroid
     api rootProject.ext.dependencies.rxlifecycleComponents

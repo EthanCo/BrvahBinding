@@ -1,10 +1,10 @@
 ext {
     android = [
-            compileSdkVersion:26,
-            buildToolsVersion:'26.0.2',
+            compileSdkVersion:28,
+            //buildToolsVersion:'26.0.2',
             applicationId:'cn.nbhope.smartlife',
-            minSdkVersion: 17,
-            targetSdkVersion:26,
+            minSdkVersion: 15,
+            targetSdkVersion:28,
             versionCode:20006,
             versionName:'2.0.6',
             ndk: [
@@ -15,7 +15,7 @@ ext {
     ]
     versions = [
             //buildTools:android.buildToolsVersion,
-            buildTools:'26.+', //26.0.1
+            buildTools:'28.+', //26.0.1
             junit:4.12,
             leakcanary:'1.5.4',
             halo:'2.1.5',
