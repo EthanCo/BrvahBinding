@@ -3,11 +3,11 @@ apply plugin: 'com.github.dcendents.android-maven'
 
 group='com.github.EthanCo'
 android {
-    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    compileSdkVersion 28
 
     defaultConfig {
-        minSdkVersion rootProject.ext.android.minSdkVersion
-        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        minSdkVersion 15
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
 
@@ -36,11 +36,15 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testImplementation rootProject.ext.dependencies.junit
-    implementation rootProject.ext.dependencies.supportv7
-    //implementation 'com.android.support:recyclerview-v7:+'
-    testImplementation 'junit:junit:4.12'
-    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'
-    //implementation 'com.android.support:recyclerview-v7:26.1.0'
-    implementation 'com.yqritc:recyclerview-flexibledivider:1.4.0'
-    implementation 'com.yanyusong.y_divideritemdecoration:y_divideritemdecoration:2.0'
+    /*implementation rootProject.ext.dependencies.supportv7
+    implementation rootProject.ext.dependencies.RecyclerView
+    implementation rootProject.ext.dependencies.BRVAH
+    implementation rootProject.ext.dependencies.flexibledivider
+    implementation rootProject.ext.dependencies.y_divideritemdecoration*/
+    implementation "com.android.support:appcompat-v7:28.+"
+    implementation "com.android.support:recyclerview-v7:+"
+    implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34"
+    implementation "com.yqritc:recyclerview-flexibledivider:1.4.0"
+    implementation "com.yanyusong.y_divideritemdecoration:y_divideritemdecoration:2.0"
+
 }
