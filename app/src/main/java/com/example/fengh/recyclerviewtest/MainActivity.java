@@ -1,9 +1,7 @@
 package com.example.fengh.recyclerviewtest;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnRecyclerviewBinding = (Button) findViewById(R.id.btn_recycler_view_binding);
+       /* btnRecyclerviewBinding = (Button) findViewById(R.id.btn_recycler_view_binding);
         btnRecyclerviewBinding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, PullToRefreshActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
         /*btnBrvahBinding2 = (Button) findViewById(R.id.btn_brvah_binding_2);
         btnBrvahBinding2.setOnClickListener(new View.OnClickListener() {
