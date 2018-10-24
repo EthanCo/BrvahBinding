@@ -51,7 +51,7 @@ public final class BrvahItemBinding<T> {
         return this;
     }
 
-    protected boolean bind(ViewDataBinding binding, T item) {
+    public boolean bind(ViewDataBinding binding, T item) {
         if (this.variableId == BrvahItemExtra.VAR_NONE) {
             return false;
         } else {
