@@ -28,10 +28,10 @@ android {
 }
 
 dependencies {
-    configurations {
+    /*configurations {
         all*.exclude group: 'com.android.support', module: 'support-v13'
         all*.exclude group: 'com.android.support', module: 'support-v4'
-    }
+    }*/
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'

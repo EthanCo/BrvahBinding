@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">#53d2c4</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorDivider">#BDBDBD</color>
+    <color name="colorDividerLight">#d7d7d7</color>
+    <color name="colorHighLight">#00d7cd</color>
+    <color name="colorHighLightDefault">#7F00d7cd</color>
+    <color name="colorHighLightEnable">#ff00d7cd</color>
+    <color name="colorHintText">#d5d5d5</color>
+    <color name="colorIcons">#FFFFFF</color>
+    <color name="colorPrimary">#53d2c4</color>
+    <color name="colorPrimaryDark">#53d2c4</color>
+    <color name="colorPrimaryLight">#BBDEFB</color>
+    <color name="colorPrimaryText">#555454</color>
+    <color name="colorSecondaryText">#878787</color>
+    <color name="colorSeekBarTrackBg">#c6c4c4</color>
+    <color name="colorTrans">#00000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorWhiteSmoke">#F5F5F5</color>
+    <color name="color_recycler_background">#e8e8e8</color>
+    <color name="divider">#d7d7d7</color>
+    <color name="hint_ali_login_tips">#6b6b6b</color>
+    <color name="hint_text_color">#c6c4c4</color>
+    <color name="ripple_color">#e2e2e2</color>
+    <color name="shape_toolbar_center">#00c1dd</color>
+    <color name="shape_toolbar_end">#00dec8</color>
+    <color name="shape_toolbar_start">#0091fe</color>
+    <color name="text_color_back">#007dcd</color>
+    <declare-styleable name="CircleImageView">
+        <attr format="dimension" name="civ_border_width"/>
+        <attr format="color" name="civ_border_color"/>
+        <attr format="boolean" name="civ_border_overlay"/>
+        <attr format="color" name="civ_fill_color"/>
+    </declare-styleable>
+    <dimen name="BottomNavigationBar_height">48dp</dimen>
+    <dimen name="actionbar_height">40dip</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="cardview_margin">8dp</dimen>
+    <dimen name="common_margin">16dp</dimen>
+    <dimen name="device_dp_17">17dp</dimen>
+    <dimen name="device_dp_20">20dp</dimen>
+    <dimen name="divider_vertical_margin">8dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="login_account_confirm_height">36dp</dimen>
+    <dimen name="login_account_top_dimen">56dp</dimen>
+    <dimen name="login_dimen_tips">13.3dp</dimen>
+    <dimen name="login_dp_12">12dp</dimen>
+    <dimen name="login_dp_166">166.7dp</dimen>
+    <dimen name="login_dp_29">29.3dp</dimen>
+    <dimen name="login_dp_52">52dp</dimen>
+    <dimen name="login_sp_18">18.7sp</dimen>
+    <dimen name="login_sp_22">22.7sp</dimen>
+    <dimen name="login_text_dimen">24dp</dimen>
+    <dimen name="small_icon_click_scope">48dp</dimen>
+    <dimen name="textSize_appBar_V20">20sp</dimen>
+    <dimen name="textSize_body_V14">14sp</dimen>
+    <dimen name="textSize_large_V112">112sp</dimen>
+    <dimen name="textSize_large_V32">32sp</dimen>
+    <dimen name="textSize_large_V45">45sp</dimen>
+    <dimen name="textSize_large_V56">56sp</dimen>
+    <dimen name="textSize_mainHead_V22">22sp</dimen>
+    <dimen name="textSize_mainHead_V24">24sp</dimen>
+    <dimen name="textSize_subHead_V16">16sp</dimen>
+    <dimen name="textSize_subHead_V18">18sp</dimen>
+    <dimen name="textSize_tip_V12">12sp</dimen>
+    <dimen name="userHead_size">64dp</dimen>
+    <dimen name="userHead_size_small">48dp</dimen>
+    <string name="account_ali_login">其他方式登录</string>
+    <string name="account_forget">忘记密码</string>
+    <string name="account_login">登录</string>
+    <string name="account_passward">登录密码</string>
+    <string name="account_phone_number">手机号码</string>
+    <string name="account_register">创建账号</string>
+    <string name="app_name">Lib.style</string>
+    <string name="dialog_loading">正在加载</string>
+    <string name="dialog_please_wait">请稍等...</string>
+    <string name="dialog_please_wait_title">请稍等</string>
+    <string name="login_phonenumber_invalid">手机号格式不正确</string>
+    <string name="login_wx_errcode_cancel">发送取消</string>
+    <string name="login_wx_errcode_deny">发送被拒绝</string>
+    <string name="login_wx_errcode_success">发送成功</string>
+    <string name="login_wx_errcode_unknown">发送返回</string>
+    <string name="login_wx_errcode_unsupported">不支持错误</string>
+    <string name="tips_pwd">密码为6-20位字符(大小写字母或数字)</string>
+    <style name="AppThemeBase" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorLink">#0b9a27</item>
+        <item name="android:textColorPrimary">@color/colorPrimaryText</item>
+        <item name="android:windowBackground">@color/colorWhiteSmoke</item>
+        <item name="actionMenuTextColor">@color/colorWhite</item>
+        <item name="editTextColor">@color/colorSecondaryText</item>
+        <!--<item name="actionBarSize">@dimen/actionbar_height</item>-->
+        <item name="android:dialogTheme">@style/TextSizeDialog</item>
+        <item name="android:textAppearanceLargePopupMenu">@style/myPopupMenuTextAppearanceLarge</item>
+
+    </style>
+    <style name="AppThemeDefault" parent="AppThemeBase"/>
+    <style name="CustomSeekBar" parent="Base.Widget.AppCompat.SeekBar">
+        <item name="android:progressDrawable">@drawable/layer_seekbar_track</item>
+        <item name="android:indeterminateDrawable">@drawable/layer_seekbar_track</item>
+        <item name="android:thumb">@drawable/selector_seekbar_thumb</item>
+        <item name="android:minHeight">2dp</item>
+        <item name="android:maxHeight">2dp</item>
+    </style>
+    <style name="FullAppTheme" parent="FullAppThemeBase">
+    </style>
+    <style name="FullAppThemeBase" parent="AppThemeBase">
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+    <style name="RecyclerViewOverScroll">
+        <item name="android:overScrollMode">never</item>
+    </style>
+    <style name="RippleBorder">
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+    </style>
+    <style name="RippleBorderless">
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+    </style>
+    <style name="RippleBorderlessItem">
+        <item name="android:background">@drawable/ripple_item</item>
+        <item name="android:clickable">true</item>
+    </style>
+    <style name="RippleBorderlessItemSmall">
+        <item name="android:background">@drawable/ripple_item</item>
+        <item name="android:clickable">true</item>
+    </style>
+    <style name="TextShadowTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:shadowColor">#88096dae</item>
+        <item name="android:shadowDx">3</item>
+        <item name="android:shadowDy">3</item>
+        <item name="android:shadowRadius">8</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:typeface">monospace</item>
+    </style>
+    <style name="TextSizeDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:theme">@style/AppThemeDefault</item>
+        <item name="android:textSize">16sp</item>
+        <!--<item name="android:windowFullscreen">true</item>-->
+    </style>
+    <style name="Theme.AppStartLoadTranslucent" parent="FullAppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="TransDialog" parent="Base.Theme.AppCompat.Dialog">
+        <item name="android:windowFrame">@null</item><!--边框-->
+        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+        <item name="android:windowIsTranslucent">true</item><!--半透明-->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item><!--模糊-->
+
+        <item name="android:progressDrawable">@drawable/layer_seekbar_track</item>
+        <item name="android:indeterminateDrawable">@drawable/layer_seekbar_track</item>
+        <item name="android:thumb">@drawable/selector_seekbar_thumb</item>
+    </style>
+    <style name="myPopupMenuTextAppearanceLarge" parent="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large">
+        <item name="android:textSize">18sp</item>
+    </style>
+</resources>
